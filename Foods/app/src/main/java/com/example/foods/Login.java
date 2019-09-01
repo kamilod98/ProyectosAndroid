@@ -3,7 +3,9 @@ package com.example.foods;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class Login extends AppCompatActivity {
@@ -15,13 +17,15 @@ public class Login extends AppCompatActivity {
     }
 
     public void SignIn(View view) {
-        int a = 20;
-        int b = 20;
+        EditText email = findViewById(R.id.IdUser);
+        EditText pass = findViewById(R.id.IdPasswd);
 
-        if (a == b) {
-            Toast.makeText(this, "Login Correcto", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "Login Incorrecto", Toast.LENGTH_SHORT).show();
+        if (email.getText().toString().equals("") && pass.getText().toString().equals("")){
+            Toast.makeText(this, "Both fields are empty", Toast.LENGTH_SHORT).show();
+        } else if (email.getText().toString().equals("")){
+            Toast.makeText(this, "Empty user field", Toast.LENGTH_SHORT).show();
+        } else if (pass.getText().toString().equals("") ){
+            Toast.makeText(this, "Empty password field", Toast.LENGTH_SHORT).show();
         }
     }
 
